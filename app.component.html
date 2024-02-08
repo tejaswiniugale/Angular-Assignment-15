@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h1 style="text-align:center">Contact Information</h1>
+
+  <form [formGroup]="registerform" (ngSubmit)="registerFn()">
+    <div class="mb-3">
+      <label for="fname" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="fname" placeholder="First Name" formcontrolName="fname" [ngClass]="(error : getControl('fname')?.errors && getControl('fname')?.touched)">
+      <div *ngIf="getControl('fname')?. error  && getControl('fname')?.touched">
+        <small class="text-danger" *ngIf="getControl('fname')?.errors?.['required']">First Name is required</small>
+        <small class="text-danger" *ngIf="getControl('fname')?.error?.['maxlength']">Only 32 characters are allowed</small>
+      </div>
+    </div>
+    <br>
+
+    <div class="mb-3">
+      <label for="lname" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lname" placeholder="Last Name" formcontrolName="lname" [ngClass]="(error : getControl('lname')?.errors && getControl('lname')?.touched)">
+      <div *ngIf="getControl('lname')?.error && getControl('lname')?.touched">
+        <small class="text-danger" *ngIf="getControl('lname')?.errors?.['required']">Last Name is required</small>
+        <small class="text-danger" *ngIf="getControl('lname')?.error?.['maxlength']">Only 32 characters are allowed</small>
+      </div>
+    </div>
+    <br>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" formcontrolName="email" [ngClass]="(error : getControl('email')?.errors && getControl('email')?.touched)">
+      <div *ngIf="getControl('email')?.error && getControl('email')?.touched">
+        <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Email is required</small>
+        <small class="text-danger" *ngIf="getControl('email')?.error?.['maxlength']">Only 32 characters are allowed</small>
+        <small class="text-danger" *ngIf="getControl('email')?.error?.['pattern']">Please enter a valid email.</small>
+      </div>
+    </div>
+    <br>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" id="phone" placeholder="Phone" formcontrolName="phone" [ngClass]="(error : getControl('phone')?.errors && getControl('phone')?.touched)">
+      <div *ngIf="getControl('phone')?.error && getControl('phone')?.touched">
+        <small class="text-danger" *ngIf="getControl('phone')?.errors?.['required']">Phone No. is required</small>
+        <small class="text-danger" *ngIf="getControl('phone')?.error?.['maxlength'] || getControl('phone')?.error?.['minlength'] || getControl('phone')?.errors?.['pattern']">Please enter a valid phone no.</small>
+      </div>
+    </div>
+    <br>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input type="text" class="form-control" id="address" placeholder="Address" formcontrolName="address" [ngClass]="(error : getControl('address')?.errors && getControl('address')?.touched)">
+    </div>
+    <br>
+
+    <button type="button" class="btn btn-primary">
+      Submit
+    </button>
+</form>
+</div>
